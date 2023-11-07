@@ -103,13 +103,13 @@ def violin_box_all(df, data_labels):
     ax1.violinplot(box_plot_data, showmedians=True)
     ax1.set_xticks(range(1, len(data_labels) + 1))
     ax1.set_xticklabels(data_labels, rotation=45)
-    ax1.set_title('Violin Plot After IQR')
+    ax1.set_title('Violin Plot')
 
     # Create a box plot
     ax2.boxplot(box_plot_data)
     ax2.set_xticks(range(1, len(data_labels) + 1))
     ax2.set_xticklabels(data_labels, rotation=20)
-    ax2.set_title('Box Plot After IQR')
+    ax2.set_title('Box Plot')
 
     plt.tight_layout()
     plt.show()
