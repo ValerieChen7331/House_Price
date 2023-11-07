@@ -46,13 +46,15 @@ def draw_pie_groupby(df, target_column, gorup_column, percentage_plot=0):
 
     # Pie chart for total values
     ax1 = plt.subplot2grid((1,2),(0,0))
-    plt.pie(data_values, labels = labels_values, colors = colors, autopct='%.0f%%', radius=1)
-    plt.title(f"{target_column} Grouped by {gorup_column}")
+    plt.pie(data_values, labels = labels_values, colors = colors, autopct='%.0f%%', radius=1,
+            wedgeprops={"linewidth": 1, "edgecolor": "white"})
+    plt.title(f"{gorup_column} Distribution for All Data")
 
     # Pie chart for missing values
     ax2 = plt.subplot2grid((1,2),(0,1))
-    plt.pie(data_missing, labels = labels_missing, colors = colors, autopct='%.0f%%', radius=1)
-    plt.title(f"Missing Values")
+    plt.pie(data_missing, labels = labels_missing, colors = colors, autopct='%.0f%%', radius=1,
+            wedgeprops={"linewidth": 1, "edgecolor": "white"})
+    plt.title(f"{gorup_column} Distribution for Missing Values of {target_column}")
 
     plt.tight_layout()
     plt.show()
@@ -65,7 +67,7 @@ def draw_pie_groupby(df, target_column, gorup_column, percentage_plot=0):
         plt.xticks(rotation= 30)
         plt.xlabel(gorup_column)
         plt.ylabel('Percentage (%)')
-        plt.title('Missing Percentage')
+        plt.title('Percentage of Missing Values ')
 
         plt.show()
     return data_all
@@ -151,7 +153,6 @@ def all_corr_heatmap(df):
     plt.title('Correlation Heatmap (Upper Triangle)')
     plt.show()
     return
-
 
 #------------------------------------------
 def normalization(df, column_name):

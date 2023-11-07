@@ -42,8 +42,8 @@ def make_dict_road(cityname='tpe'):
 def verify_postal_districts(row, dict_road, c_list):
     #print('verify_postal_districts...')
     # Count the number of corrected districts
-    cp = c_list[0]; cd = c_list[1]
-    ca = c_list[2]; cunknow = c_list[3]
+    c_post = c_list[0]; c_orig = c_list[1]
+    c_addr = c_list[2]; c_unknow = c_list[3]
 
     try:
         orig_district = row['orig_district']
@@ -54,35 +54,30 @@ def verify_postal_districts(row, dict_road, c_list):
             post_district_list = dict_road[road_name]
 
             if (orig_district in post_district_list) and not (addr_district in post_district_list):
-                post_district = orig_district
-                cd += 1
-
-
+                verified_district = orig_district
+                c_orig += 1
             elif (addr_district in post_district_list) and not (orig_district in post_district_list):
-                post_district = addr_district
-                ca += 1
-
+                verified_district = addr_district
+                c_addr += 1
             elif len(post_district_list) == 1:
-                post_district = post_district_list[0]
-                cp += 1
-
+                verified_district = post_district_list[0]
+                c_post += 1
             else:
-                # 暫時先以'orig_district'帶入，因台北市267中，已知(District: 247, addr: 2, UNKnow: 16)
+                # 暫時先以'orig_district'帶入，因台北市267中，已知(orig: 247, addr: 2, UNKnow: 16)
                 # 之後可以用爬蟲修改(待完成...)
-                post_district = orig_district
-                cunknow += 1
+                verified_district = orig_district
+                c_unknow += 1
         else:
-            post_district = None
+            verified_district = None
 
     except Exception as e:
         print(f'Error: {e}')
         print(row['orig_district'], row['district'], row['road'])
-        post_district = None
+        verified_district = None
 
     #print('Finish!')
-    c_list = [cp, cd, ca, cunknow]
-
-    return (post_district, c_list)
+    c_list = [c_post, c_orig, c_addr, c_unknow]
+    return (verified_district, c_list)
 
 # 3-4.無法判讀的資料 (錯字)
 def address_misspelled(data):
