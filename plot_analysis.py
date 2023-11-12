@@ -154,6 +154,23 @@ def all_corr_heatmap(df):
     plt.show()
     return
 
+def important_features_heatmap(df_important, title):
+    # Calculate the correlation coefficient matrix
+    corr_matrix = df_important.corr()
+
+    # Determine the minimum and maximum absolute values
+    min_val = abs(corr_matrix.values).min()
+    max_val = abs(corr_matrix.values).max()
+
+    # creat a heat map
+    size = len(df_important.keys())
+    plt.figure(figsize=(size, size*0.6))
+    sns.heatmap(corr_matrix, annot=True,cmap='coolwarm', fmt=".2f", linewidths=.5, center=0, vmin=-max_val, vmax=max_val)
+
+    plt.title(f'Correlation Heatmap ({title})')
+    plt.show()
+    return
+
 #------------------------------------------
 def normalization(df, column_name):
     nmax = df[column_name].max()
