@@ -1,5 +1,5 @@
 # House_Price
-The purpose of this side project is to analyze the house prices in Taiwan for the past decade, with a focus on residential properties. 
+The purpose of this side project is to analyze the house prices in Taiwan for the last decade, with a focus on residential properties. 
 
 All of the data come from the government system 'Actual Price Registration'.
 
