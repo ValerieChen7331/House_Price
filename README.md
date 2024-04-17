@@ -7,6 +7,7 @@ All of the data comes from the government system 'Actual Price Registration'.
 The project is broken down into two steps: data cleaning and data analysis.
 
 Step 1. Data Cleaning:
+
 -In the 1~4 main programs, the data is initially cleaned and then filtered to select all the necessary data.Next, we will sequentially introduce the functions and processes of each main program:
 
 1_DataProfile.ipynb
@@ -18,6 +19,7 @@ Step 1. Data Cleaning:
 1-3. Analyze the distribution of 'null values' in the raw data, identifying gaps and inconsistencies.
 
 1-4. Analyze the relationships between all fields to uncover patterns and correlations.
+
 
 2_DataSelection.ipynb
 
