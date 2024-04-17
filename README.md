@@ -10,9 +10,13 @@ Step 1. Data Cleaning:
 -In the 1~4 main programs, the data is initially cleaned and then filtered to select all the necessary data.Next, we will sequentially introduce the functions and processes of each main program:
 
 1_DataProfile.ipynb
+
 1-1. Examine the raw data and organizing it into structured tables.
+
 1-2. Translate the column headers into English for clearer comprehension and uniformity.
+
 1-3. Analyze the distribution of 'null values' in the raw data, identifying gaps and inconsistencies.
+
 1-4. Analyze the relationships between all fields to uncover patterns and correlations.
 
 2_DataSelection.ipynb
